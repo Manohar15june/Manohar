@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World Tour Time</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        h1 {
+            color: #333;
+        }
+        .hidden {
+            display: none;
+        }
+        .balloons {
+            position: fixed;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            animation: rise 4s infinite;
+        }
+        .balloon {
+            width: 40px;
+            height: 60px;
+            background-color: red;
+            border-radius: 50%;
+            position: relative;
+        }
+        .balloon:before {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 20px;
+            background-color: black;
+        }
+        @keyframes rise {
+            0% { bottom: -100px; }
+            100% { bottom: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <h1>How Much Time Does It Take to Complete a World Tour?</h1>
+    <input type="text" id="userAnswer" placeholder="Type your answer here">
+    <button onclick="askNextQuestion()">Submit</button>
+
+    <div id="question2" class="hidden">
+        <h1>Do you want to know how much time it takes for me to complete a world tour?</h1>
+        <button onclick="revealFlirtLine()">Yes</button>
+    </div>
+
+    <div id="result" class="hidden">
+        <h1 style="color: green; font-size: 2em;">Only a few seconds, because it takes just a moment to revolve around you—because you are my world.</h1>
+        <div class="balloons">
+            <div class="balloon" style="background-color: red;"></div>
+            <div class="balloon" style="background-color: blue;"></div>
+            <div class="balloon" style="background-color: green;"></div>
+        </div>
+    </div>
+
+    <script>
+        function askNextQuestion() {
+            document.getElementById('question2').classList.remove('hidden');
+        }
+
+        function revealFlirtLine() {
+            document.getElementById('result').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
